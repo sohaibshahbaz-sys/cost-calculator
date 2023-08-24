@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+    />
+    <script src="index.js">
+    
+    </script>
+    <style>
+      /* .active-tab {
+        background-color: #042d62;
+      } */
+      /* .inactive-tab {
+            background-color: #A5E1F9;
+        } */
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="header py-4 text-center">
+      <h1 class="text-2xl font-bold">Ludwig – cost calculator!</h1>
+      <p class="text-lg">Information about your decluttering</p>
+    </div>
+   
+    <!-- this is the right one,  -->
+    
+    <div id="myDiv" >
+      <div class=" sm:block  gap-1  lg:p-20 lg:flex  "  id="firstDiv">
+        <div class="lg:w-[70%] sm:w-[100%]  px-10 ">
+          <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-title" onclick="toggleAccordion(0)">
+                Add your Information
+              </div>
+              <div class="accordion-content" id="accordion-content-9" style="display: block;">
+                <div class="grid  gap-3  lg:p-20-left-right lg:grid-cols-2 md:grid-cols-1" id="supnigga">
+                  <div class="mx-auto pt-3_25rem">
+                    <ol class="space-y-4 w-48">
+                      <li class="left-tab active-tab tab-1" onclick="openTab(event, 'user-info', this)">
+                        <div class="left-tab-tab-content">
+                          <span class="sr-only">1</span>
+                          <h3 class="font-medium">1</h3>
+                          <p class="text-xs text-gray-500 mt-2">Select Object Type</p>
+                        </div>
+                      </li>
+                      <li id="tab-2"class="left-tab disabled" onclick="openTab(event, 'account-info', this)">
+                        <div class="left-tab-tab-content">
+                          <span class="sr-only">2</span>
+                          <h3 class="font-medium">2</h3>
+                          <p class="text-xs text-gray-500 mt-2">Surface Area</p>
+                        </div>
+                      </li>
+                      <li id="tab-3"class="left-tab disabled" onclick="openTab(event, 'social-accounts', this)">
+                        <div class="left-tab-tab-content">
+                          <span class="sr-only">3</span>
+                          <h3 class="font-medium">3</h3>
+                          <p class="text-xs text-gray-500 mt-2">Condition Object</p>
+                        </div>
+                      </li>
+                      <li id="tab-4" class="left-tab  disabled" onclick="openTab(event, 'reviews', this)">
+                        <div class="left-tab-tab-content">
+                          <span class="sr-only">4</span>
+                          <h3 class="font-medium">4</h3>
+                          <p class="text-xs text-gray-500 mt-2">Staircase</p>
+                        </div>
+                      </li>
+                      <li id="tab-5" class="left-tab disabled" onclick="openTab(event, 'confirmation', this)">
+                        <div class="left-tab-tab-content">
+                          <span class="sr-only">5</span>
+                          <h3 class="font-medium">5</h3>
+                          <p class="text-xs text-gray-500 mt-2">Floor</p>
+                        </div>
+                      </li>
+                    </ol>
+                    
+                  </div>
+                  
+                  <div class="p-4">
+                    <div id="user-info" class="tab-content flex flex-col items-center">
+                      <h2 class="text-center font-bold">Select object type</h2>
+                      <p class="text-center text-xs">
+                        Please select what should be cleared. Just click on the information
+                        you want:
+                      </p>
+                      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 p-1">
+                        <div class="bg-gray-300 rounded-lg p-4 flex flex-col items-center" id="house" onclick="selectFirstOption(0)">
+                          <img
+                            src="https://ruempeleasy.de/wp-content/uploads/2021/05/house-hover.png"
+                            alt="House"
+                            class="mx-auto mb-2 max-w-[25px]"
+                          />
+                          <span class="text-center text-xs">House</span>
+                        </div>
+                        <div class="bg-gray-300 rounded-lg p-4 flex flex-col items-center" id="apartment" onclick="selectFirstOption(1)">
+                          <img
+                            src="https://ruempeleasy.de/wp-content/uploads/2021/05/flat-hover.png"
+                            alt="Apartment"
+                            class="mx-auto mb-2 max-w-[25px]"
+                          />
+                          <span class="text-center text-xs">Apartment</span>
+                        </div>
+                        <div class="bg-gray-300 rounded-lg p-4 flex flex-col items-center" id="operation" onclick="selectFirstOption(2)">
+                          <img
+                            src="	https://ruempeleasy.de/wp-content/uploads/2021/05/business-hover.png"
+                            alt="Operation"
+                            class="mx-auto mb-2 max-w-[25px]"
+                          />
+                          <span class="text-center text-xs">Operation</span>
+                        </div>
+                        <div class="bg-gray-300 rounded-lg p-2 flex flex-col justify-center items-center" id="garage" onclick="selectFirstOption(3)">
+                          <img
+                            src="	https://ruempeleasy.de/wp-content/uploads/2021/05/garage-hover.png"
+                            alt="Garage"
+                            class="mx-auto mb-2 max-w-[25px]"
+                          />
+                          <span class="text-center text-xs">Garage</span>
+                        </div>
+                        <div class="bg-gray-300 rounded-lg p-4 flex flex-col justify-center items-center" id="attic" onclick="selectFirstOption(4)">
+                          <img
+                            src="https://ruempeleasy.de/wp-content/uploads/2021/05/attic-hover.png"
+                            alt="Attic"
+                            class="mx-auto mb-2 max-w-[25px]"
+                          />
+                          <span class="text-center text-xs">Attic</span>
+                        </div>
+                        <div class="bg-gray-300 rounded-lg p-4 flex flex-col items-center" id="basement,attic" onclick="selectFirstOption(5)"> 
+                          <img
+                            src="https://ruempeleasy.de/wp-content/uploads/2021/05/attic-hover.png"
+                            alt="Basement, Attic"
+                            class="mx-auto mb-2 max-w-[25px]"
+                          />
+                          <span class="text-center text-xs">Basement, Attic</span>
+                        </div>
+                        <div class="bg-gray-300 rounded-lg p-4 flex flex-col items-center" id="kitchen" onclick="selectFirstOption(6)">
+                          <img
+                            src="https://ruempeleasy.de/wp-content/uploads/2021/05/kitchen-hover.png"
+                            alt="Kitchen"
+                            class="mx-auto mb-2 max-w-[25px]"
+                          />
+                          <span class="text-center text-xs">Kitchen</span>
+                        </div>
+                        <div class="bg-gray-300 rounded-lg p-4 flex flex-col items-center" id="camp" onclick="selectFirstOption(7)">
+                          <img
+                            src="	https://ruempeleasy.de/wp-content/uploads/2021/05/camp-hover.png"
+                            alt="Camp"
+                            class="mx-auto mb-2 max-w-[25px]"
+                          />
+                          <span class="text-center text-xs">Camp</span>
+                        </div>
+                        <div class="bg-gray-300 rounded-lg p-4 flex flex-col items-center" id="miscellanous" onclick="selectFirstOption(8)">
+                          <img
+                            src="	https://ruempeleasy.de/wp-content/uploads/2021/05/others-hover.png"
+                            alt="Miscellaneous"
+                            class="mx-auto mb-2 max-w-[25px]"
+                          />
+                          <span class="text-center text-xs">Misc.</span>
+                        </div>
+                      </div>
+                      <div class="pt-2 flex items-end justify-end">
+                        <button
+                          id="nextButton"
+                          class="flex items-center gap-1 bg-blue-500 text-white px-4 py-2 rounded-md"
+                          class="tab"
+                          onclick="openTab(event, 'account-info', this)" style="display: none;  "  >
+                          Next
+                          <svg
+                            class="w-4 h-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+            
+                    <div id="account-info" class="tab-content hidden">
+                      <h2 class="text-center font-bold">Surface</h2>
+                      <p class="leading-one" style="font-size: 10px">
+                        Please only enter the total area of the rooms in which there are
+                        objects to be cleared out. The rooms without clearing objects (or
+                        only with very few small clearing objects) should not be taken into
+                        account. For economic reasons, the minimum area is 20 m². For
+                        further explanation, see "Questions and Answers."
+                      </p>
+                      <div class="flex items-center pt-2">
+                          <span id="rangeDisplay" class="mb-2 mr-1">50</span>
+                        <span class="mr-2 mb-2">sqm</span>
+                      </div>
+                      <div class="flex mt-4">
+                        <input type="range" id="myRange" min="20" max="300" value="50" oninput="updateRangeValue(this.value)"
+                        class="w-full h-1 mb-6 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm dark:bg-gray-700">
+            
+                      </div>
+                      <div class="flex justify-end mt-auto" >
+                        <button
+                          id="tab-next-two"
+                          class="flex items-center gap-1 bg-blue-500 text-white px-4 py-2 rounded-md"
+                          class="tab"
+                          onclick="openTab(event, 'social-accounts',this)"
+                          style="display: none;"
+                        >
+                          Next
+                          <svg
+                            class="w-4 h-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+            
+                    <div id="social-accounts" class="tab-content hidden pl-0 pr-0">
+                      <h2 class="text-center font-bold">Condition</h2>
+                      <p class="leading-one" style="font-size: 10px">
+                        What is the condition of the clearing object? For further
+                        explanation, look at the question 'What is the condition of my
+                        clearing object' under 'Questions and Answers'.
+                      </p>
+                     <div class="grid grid-cols-3 gap-4 pt-2 p-1">
+              <div class="bg-gray-300 rounded-lg p-4 flex flex-col items-center" onclick="selectOption(0)">
+                <img src="https://ruempeleasy.de/wp-content/uploads/2021/05/condition1_hover.png" alt="normal" class="mx-auto mb-2 max-w-[25px]" />
+                <span class="text-center text-xs">Normal</span>
+              </div>
+              <div class="bg-gray-300 rounded-lg p-4 flex flex-col items-center" onclick="selectOption(1)">
+                <img src="	https://ruempeleasy.de/wp-content/uploads/2021/05/condition2_hover.png" alt="strong" class="mx-auto mb-2 max-w-[25px]" />
+                <span class="text-center text-xs">Strong</span>
+              </div>
+              <div class="bg-gray-300 rounded-lg p-4 flex flex-col items-center" onclick="selectOption(2)">
+                <img src="https://ruempeleasy.de/wp-content/uploads/2021/05/condition3_hover.png" alt="extreme" class="mx-auto mb-2 max-w-[25px]" />
+                <span class="text-center text-xs">Extreme</span>
+              </div>
+              <span id="conditionSpanCheck"></span>
+            </div>
+            
+                      <div class="pt-2 flex items-end justify-end mt-auto">
+                        <button
+                          id="next-btn-surface"
+                          class="flex items-center gap-1 bg-blue-500 text-white px-4 py-2 rounded-md mt-4"
+                          class="tab"
+                          onclick="openTab(event, 'reviews',this)"
+                          style="display: none;"
+                          
+                        >
+                          Next
+                          <svg
+                            class="w-4 h-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div id="reviews" class="tab-content hidden pl-0 pr-0">
+                      <h2 class="text-center font-bold">Stair Case</h2>
+                      <p class="leading-one" style="font-size: 10px">
+                        Please select what should be cleared. Just click on the information
+                        you want:
+                      </p>
+                      <div class="grid grid-cols-2 gap-4 pt-2 p-1">
+                        <div class="bg-gray-300 rounded-lg p-4 flex flex-col items-center" onclick="selectSecondOption(0)">
+                          <img
+                            src="https://ruempeleasy.de/wp-content/uploads/2021/03/icon_aufzug_hover.png"
+                            alt="strong"
+                            class="mx-auto mb-2 max-w-[25px]"
+                          />
+                          <span class="text-center text-xs">Elevator </span>
+                        </div>
+                        <div class="bg-gray-300 rounded-lg p-4 flex flex-col items-center" onclick="selectSecondOption(1)">
+                          <img
+                            src="https://ruempeleasy.de/wp-content/uploads/2021/03/stairs_hover-e1621806249315.png"
+                            alt="elevator"
+                            class="mx-auto mb-2 max-w-[25px]"
+                          />
+                          <span class="text-center text-xs">Stair Case</span>
+                        </div>
+                      </div>
+
+                      <span id="floorSpanCheck"></span>
+
+                      <div class="pt-2 flex items-end justify-end mt-auto">
+                        <button
+                          id="tab-next-staircase"
+                          class="flex items-center gap-1 bg-blue-500 text-white px-4 py-2 rounded-md mt-4"
+                          class="tab"
+                          onclick="openTab(event, 'confirmation',this)"
+                          style="display: none;"
+                        >
+                          Next
+                          <svg
+                            class="w-4 h-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div id="confirmation" class="tab-content hidden">
+                      <h2 class="text-center font-bold">Floor</h2>
+                      <p class="leading-one" style="font-size: 10px">
+                        If the clearing is to be carried out on several floors, please
+                        indicate the lowest floor.
+                      </p>
+                      <div class="flex items-center pt-2">
+                        <span id="rangeFloor" class="mb-2 mr-1">1</span>
+            
+                      </div>
+                      <div class="flex mt-4">
+                        <input
+                          id=""
+                          type="range"
+                          value="1"
+                          min="0"
+                          max="15"
+                          class="w-full h-1 mb-6 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm dark:bg-gray-700"
+                          oninput="updateFloorValue(this.value)"
+                        />
+                      </div>
+                      <div class="flex justify-end mt-auto">
+                        <button
+                        id="tab-next-floor"
+                          class="flex items-center gap-1 bg-blue-500 text-white px-4 py-2 rounded-md"
+                          class="tab"
+                          onclick="hideSteps(); duplicateCalculator();"
+                          >
+                          Next
+                          <svg
+                            class="w-4 h-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+              
+                </div>                </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-title" onclick="toggleAccordion(1)">Would you like to add additional information?</div>
+              <div class="accordion-content" id="accordion-content-1">
+                <div class="lg:flex lg:flex-row sm:flex-col">
+                  <div class="flex flex-col mr-4">
+                    <label for="object-size" class="block text-xs">Total size of the object:</label>
+                    <input
+                      type="number"
+                      id="object-size"
+                      min="1"
+                      class="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+
+                  <div class="flex flex-col mr-4">
+                    <label for="cubic-meters" class="block text-xs"
+                      >Cubic meters:</label
+                    >
+                    <input
+                      type="number"
+                      id="cubic-meters"
+                      min="1"
+                      class="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+
+                  <div class="flex flex-col">
+                    <label for="distance" class="block text-xs"
+                      >Distance to vehicle/container:</label
+                    >
+                    <input
+                      type="number"
+                      id="distance"
+                      min="0"
+                      class="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+                </div>
+                <div class="flex flex-col mt-4">
+                  <label for="remarks" class="block text-xs">Remarks:</label>
+                  <textarea
+                    id="remarks"
+                    class="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:border-blue-500"
+                  ></textarea>
+                </div>
+
+                <button id="save-button" class="border border-green-500 text-xs text-slate-800 mt-2 px-4 py-2 rounded-md" onclick="addInfoAndContinue(); toggleAccordionForTabTwo();">
+                  Add info and continue
+                </button>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-title" onclick="toggleAccordion(2)">
+                Would you like a value credit?
+              </div>
+              <div class="accordion-content" id="accordion-content-2">
+                <div id="new-item" class=" lg:flex sm:block flex-col mt-2">
+                  <div class="sm:block lg:flex">
+                    <div class="flex items-center">
+                      <label class="mr-2 text-xs mb-1 mt-3" for="objects">Objects:</label>
+                      <input
+                        id="objects"
+                        type="number"
+                        class="w-20 border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-green-500 mr-2"
+                      />
+                    </div>
+                    <div class="flex items-center">
+                      <label class="mr-2 text-xs mt-3 mb-2" >Asking Price:</label
+                      >
+                      <input
+                        id="asking-price"
+                        type="number"
+                        class="w-20 border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-green-500"
+                      />
+                    </div>
+                  </div>
+                  <h5 class="mt-2 mb-2 text-xs">Picture</h5>
+                  <div class="flex items-center">
+                    <input id="image-input" type="file" accept="image/*" />
+                    <!-- <span class="text-xs">No image selected</span> -->
+                  </div>
+
+                  <div class="flex justify-end mt-4">
+                    <!-- <button
+                      class="border border-gray-300 rounded-lg px-4 py-2 text-sm mr-2"
+                    >
+                      Cancel
+                    </button> -->
+                    <button
+                      class="border border-green-500 text-green-500 rounded-lg px-4 py-2 text-sm" onclick="saveValueCredit(); toggleAccordionForTabThree(); "
+                    >
+                      Add
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-title" onclick="toggleAccordion(3)">
+                Do you need additional services?
+              </div>
+              <div class="lg:flex sm:block">
+                <div class="lg:w-[40%] sm:w-[100%]">
+                  <div class="accordion-content" id="accordion-content-3">
+                    <div class="tabsOfAdditionalService">
+                      <div
+                        class="tab text-sm"
+                        data-tab="tab1"
+                        onclick="changeTab('tab1')"
+                      >
+                        Remove ceiling covering
+                      </div>
+                      <div
+                        class="tab text-sm"
+                        data-tab="tab2"
+                        onclick="changeTab('tab2')"
+                      >
+                        Handover service to landlord
+                      </div>
+                      <div
+                        class="tab text-sm"
+                        data-tab="tab3"
+                        onclick="changeTab('tab3')"
+                      >
+                        Remove wall covering
+                      </div>
+                      <div
+                        class="tab text-sm"
+                        data-tab="tab4"
+                        onclick="changeTab('tab4')"
+                      >
+                        Remove floor covering
+                      </div>
+                      <div
+                        class="tab text-sm"
+                        data-tab="tab5"
+                        onclick="changeTab('tab5')"
+                      >
+                        Paint walls
+                      </div>
+                      <div
+                        class="tab text-sm"
+                        data-tab="tab6"
+                        onclick="changeTab('tab6')"
+                      >
+                        Basic cleaning floor
+                      </div>
+                      <div
+                        class="tab text-sm"
+                        data-tab="tab7"
+                        onclick="changeTab('tab7')"
+                      >
+                        Basic cleaning of the bathroom
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="lg:w-[60%] sm:w-[100%]">
+                  <div class="tab-contents h-100" id="tab1">
+                    <div class="grid-for-seperation">
+                      <div class="box-grid">
+                        <div class="box" onclick="selectCeilingCovering(0)">
+                          Remove Styrofoam
+                          <span class="tick">&#10004;</span>
+                        </div>
+                        <div class="box" onclick="selectCeilingCovering(1)">
+                          Wood / Panels
+                          <span class="tick">&#10004;</span>
+
+                        </div>
+                        <div class="box" onclick="selectCeilingCovering(2)">
+                          Wallpaper / ingrain
+                          <span class="tick">&#10004;</span>
+
+                        </div>
+                        <div class="box" onclick="selectCeilingCovering(3)">
+                          Wallpaper/ingrain fiber (multi-layered)
+                          <span class="tick">&#10004;</span>
+                        </div>
+                        <div></div>
+                        <div class="pricing-container">
+                          <!-- Pricing information for each ceiling will be added here -->
+                        </div>
+                      </div>
+                  
+                      <div >
+                        <div class="disp" id="labelsDiv">
+                        <p class="text-xs text-zinc-900  ml-3 mr-3">Quantity</p>
+                        <p class="text-xs text-gray-800 ml-7 mr-3">  Rate</p>
+                        <p class="text-xs text-gray-800 ml-11 mr-3">Total</p>
+                      </div>
+                        <input type="number" id="custom-price" name="hello" onchange="updatePriceLabel(selectedCeilingCovering)" oninput="updatePriceLabel(selectedCeilingCovering)" class="border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-green-500 w-20 mr-5" />
+                        <label for="custom-price" class="text-xs text-gray-500" id="price-label">Add Option Price:</label>
+                      </div>
+                      
+                  
+                      <div class="box-price" id="boxPrice"></div>
+                  
+                      <div class="flex justify-end ml-auto">
+                        <span></span>
+                        <!-- Add this button to your HTML -->
+                        <button class="flex items-center gap-1 border border-green-500 text-green-500 px-2 py-1 rounded-md text-xs mr-2" onclick="removeSelectedOptionFromFirstOne()">Remove</button>
+                        <button class="flex items-center gap-1 border border-green-500 text-green-500 px-2 py-1 rounded-md text-xs" onclick="addInfoAndContinueTwo()">
+                          Add
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-contents h-100" id="tab2">
+                    <div class="grid-for-seperation-2">
+                      <div class="box-grid">
+                        <div class="box-2 mb-2" onclick="selectHandoverCovering(0)">Handover service to landlord  <span class="tick-2">&#10004;</span></div>
+                      </div>
+                      <div class="disp" id="labelsDivTabTwo" style="display: none;">
+                        <p class="text-xs text-zinc-900 ml-3 mr-3">Quantity</p>
+                        <p class="text-xs text-gray-800 ml-7 mr-3">Rate</p>
+                        <p class="text-xs text-gray-800 ml-11 mr-3">Total</p>
+                      </div>
+                      <input type="number" id="custom-priceTabTwo" name="helloTabSix" onchange="updatePriceLabelTabTwo(selectedHandoverCovering)" oninput="updatePriceLabelTabTwo(selectedHandoverCovering)" class="border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-green-500 w-20 mr-5" />
+                      <label for="custom-priceTabTwo" class="text-xs text-gray-500" id="price-labelTabTwo">Add Option Price:</label>
+                    </div>
+                    <div class="box-price" id="boxPriceTabTwo"></div>
+                    <div class="flex justify-end ml-auto">
+                      <span></span>
+                      <button class="flex items-center gap-1 border border-green-500 text-green-500 px-2 py-1 rounded-md text-xs mr-2" onclick="removeSelectedOptionFromTabTwo()">
+                       Remove
+                      </button>
+                      <button class="flex items-center gap-1 border border-green-500 text-green-500 px-2 py-1 rounded-md text-xs" onclick="addInfoAndContinueTwoTabTwo()">
+                       Add
+                      </button>
+                    </div>
+                  </div>
+                  <div class="tab-contents h-100" id="tab3">
+                    <div class="grid-for-separation">
+                      <div class="box-grid">
+                        <div class="box-3" onclick="selectWallCovering(0)">Wallpaper / ingrain <span class="tick-3">&#10004;</span></div>
+                        <div class="box-3" onclick="selectWallCovering(1)">Wallpaper/ingrain fiber (multi-layered) <span class="tick-3">&#10004;</span></div>
+                        <div class="box-3 mb-3" onclick="selectWallCovering(2)">Wood/Panels <span class="tick-3">&#10004;</span></div>
+                      </div>
+                      <div>
+                        <div class="disp" id="labelsDivTabThree" style="display: none;">
+                          <p class="text-xs text-zinc-900 ml-3 mr-3">Quantity</p>
+                          <p class="text-xs text-gray-800 ml-7 mr-3">Rate</p>
+                          <p class="text-xs text-gray-800 ml-11 mr-3">Total</p>
+                        </div>
+                        <input type="number" id="custom-priceTabThree" name="helloTabThree" onchange="updatePriceLabelTabThree(selectedWallCovering)" oninput="updatePriceLabelTabThree(selectedWallCovering)" class="border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-green-500 w-20 mr-5" />
+                        <label for="custom-priceTabThree" class="text-xs text-gray-500" id="price-labelTabThree">Add Option Price:</label>
+                      </div>
+                    </div>
+                    <div class="box-price" id="boxPriceTabThree"></div>
+                    <div class="flex justify-end ml-auto">
+                      <span></span>
+                      <button class="flex items-center gap-1 border border-green-500 text-green-500 px-2 py-1 rounded-md text-xs mr-2" onclick="removeSelectedOptionFromTabThree()">Remove</button>
+                      <button class="flex items-center gap-1 border border-green-500 text-green-500 px-2 py-1 rounded-md text-xs" onclick="addInfoAndContinueTwoTabThree()">Add</button>
+                    </div>
+                  </div>
+                  
+                  <div class="tab-contents h-100" id="tab4">
+                    <div class="grid-for-seperation-4 ">
+                      <div class="box-grid">
+                        <div class="box-4" onclick="selectFloorCovering(0)">Ground, Glued <span class="tick-4">&#10004;</span></div>
+                        <div class="box-4" onclick="selectFloorCovering(1)">Carpet / PVC loose <span class="tick-4">&#10004;</span></div>
+                        <div class="box-4 mb-2" onclick="selectFloorCovering(2)">Laminate/parquet (loose) <span class="tick-4">&#10004;</span></div>
+                      </div>
+                      <div>
+                        <div class="disp" id="labelsDivTabFour" style="display: none;">
+                          <p class="text-xs text-zinc-900 ml-3 mr-3">Quantity</p>
+                          <p class="text-xs text-gray-800 ml-7 mr-3">Rate</p>
+                          <p class="text-xs text-gray-800 ml-11 mr-3">Total</p>
+                        </div>
+                        <input type="number" id="custom-priceTabFour" name="helloTabFour" onchange="updatePriceLabelTabFour(selectedFLoorCovering)" oninput="updatePriceLabelTabFour(selectedFloorCovering)" class="border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-green-500 w-20 mr-5" />
+                        <label for="custom-priceTabFour" class="text-xs text-gray-500" id="price-labelTabFour">Add Option Price:</label>
+                      </div>
+                    </div>
+                    <div class="box-price" id="boxPriceTabFour"></div>
+                    <div class="flex justify-end ml-auto">
+                      <span></span>
+                      <button class="flex items-center gap-1 border border-green-500 text-green-500 px-2 py-1 rounded-md text-xs mr-2" onclick="removeSelectedOptionFromTabFour()">Remove</button>
+                      <button class="flex items-center gap-1 border border-green-500 text-green-500 px-2 py-1 rounded-md text-xs" onclick="addInfoAndContinueTwoTabFour()">Add</button>
+                    </div>
+                  </div>
+                  
+                  <div class="tab-contents h-100" id="tab5">
+                    <div class="grid-for-separation">
+                      <div class="box-grid">
+                        <div class="box-5" onclick="selectPaintWall(0)">One coat (including material) <span class="tick-5">&#10004;</span></div>
+                        <div class="box-5" onclick="selectPaintWall(1)">One coat (material is provided)<span class="tick-5">&#10004;</span></div>
+                        <div class="box-5 mb-3" onclick="selectPaintWall(2)">Two coats (including material)<span class="tick-5">&#10004;</span></div>
+                        <div class="box-5 mb-3" onclick="selectPaintWall(3)">Two coats of paint (material provided)<span class="tick-5">&#10004;</span></div>
+                      </div>
+                      <div>
+                        <div class="disp" id="labelsDivTabFive" style="display: none;">
+                          <p class="text-xs text-zinc-900 ml-3 mr-3">Quantity</p>
+                          <p class="text-xs text-gray-800 ml-7 mr-3">Rate</p>
+                          <p class="text-xs text-gray-800 ml-11 mr-3">Total</p>
+                        </div>
+                        <input type="number" id="custom-priceTabFive" name="helloTabFive" onchange="updatePriceLabelTabFive(selectedPaintWalls)" oninput="updatePriceLabelTabFive(selectedPaintWalls)" class="border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-green-500 w-20 mr-5" />
+                        <label for="custom-priceTabFive" class="text-xs text-gray-500" id="price-labelTabFive">Add Option Price:</label>
+                      </div>
+                    </div>
+                    <div class="box-price" id="boxPriceTabFive"></div>
+                    <div class="flex justify-end ml-auto">
+                      <span></span>
+                      <button class="flex items-center gap-1 border border-green-500 text-green-500 px-2 py-1 rounded-md text-xs mr-2" onclick="removeSelectedOptionFromTabFive()">Remove</button>
+                      <button class="flex items-center gap-1 border border-green-500 text-green-500 px-2 py-1 rounded-md text-xs" onclick="addInfoAndContinueTwoTabFive()">Add</button>
+                    </div>
+                  </div> 
+                  <div class="tab-contents h-100" id="tab6">
+                    <div class="box-grid mb-2">
+                      <div class="box-6" onclick="selectCleaningFloor(0)">Laminate <span class="tick-6">&#10004;</span></div>
+                      <div class="box-6" onclick="selectCleaningFloor(1)">Tiles/PVC <span class="tick-6">&#10004;</span></div>
+                      <div class="box-6 " onclick="selectCleaningFloor(2)">Carpet <span class="tick-6">&#10004;</span></div>
+                      <div class="box-6" onclick="selectCleaningFloor(3)">Parquet <span class="tick-6">&#10004;</span></div>
+                    </div>
+                    <div>
+                      <div class="disp" id="labelsDivTabSix" style="display: none;">
+                        <p class="text-xs text-zinc-900 ml-3 mr-3">Quantity</p>
+                        <p class="text-xs text-gray-800 ml-7 mr-3">Rate</p>
+                        <p class="text-xs text-gray-800 ml-11 mr-3">Total</p>
+                      </div>
+                      <input type="number" id="custom-priceTabSix" name="helloTabSix" onchange="updatePriceLabelTabSix(selectedCleaningFloor)" oninput="updatePriceLabelTabSix(selectedCleaningFloor)" class="border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-green-500 w-20 mr-5" />
+                      <label for="custom-priceTabSix" class="text-xs text-gray-500" id="price-labelTabSix">Add Option Price:</label>
+                    </div>
+                    <div class="box-price" id="boxPriceTabSix"></div>
+                    <div class="flex justify-end ml-auto">
+                      <span></span>
+                      <button class="flex items-center gap-1 border border-green-500 text-green-500 px-2 py-1 rounded-md text-xs mr-2" onclick="removeSelectedOptionFromTabSix()">
+                       Remove
+                      </button>
+                      <button class="flex items-center gap-1 border border-green-500 text-green-500 px-2 py-1 rounded-md text-xs" onclick="addInfoAndContinueTwoTabSix()">
+                       Add
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div class="tab-contents" id="tab7">
+                    <div class="box-grid">
+                      <div class="box-7" onclick="selectCleaningBathroom(0)">Basic cleaning bathroom : Floor <span class="tick-7">&#10004;</span></div>
+                      <div class="box-7" onclick="selectCleaningBathroom(1)">Wall <span class="tick-7">&#10004;</span></div>
+                      <div class="box-7 mb-2 " onclick="selectCleaningBathroom(2)">Consoles ( specify number ) <span class="tick-7">&#10004;</span></div>
+                    </div>
+                    <div>
+                      <div class="disp" id="labelsDivTabSeven" style="display: none;">
+                        <p class="text-xs text-zinc-900 ml-3 mr-3">Quantity</p>
+                        <p class="text-xs text-gray-800 ml-7 mr-3">Rate</p>
+                        <p class="text-xs text-gray-800 ml-11 mr-3">Total</p>
+                      </div>
+                      <input type="number" id="custom-priceTabSeven" name="helloTabSeven" onchange="updatePriceLabelTabSeven(selectedCleaningBathroom)" oninput="updatePriceLabelTabSeven(selectedCleaningBathroom)" class="border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-green-500 w-20 mr-5" />
+                      <label for="custom-priceTabSeven" class="text-xs text-gray-500" id="price-labelTabSeven">Add Option Price:</label>
+                    </div>
+                    <div class="box-price" id="boxPriceTabSeven"></div>
+                    <div class="flex justify-end ml-auto">
+                      <span></span>
+                      <button class="flex items-center gap-1 border border-green-500 text-green-500 px-2 py-1 rounded-md text-xs mr-2" onclick="removeSelectedOptionFromTabSeven()">
+                       Remove
+                      </button>
+                      <button class="flex items-center gap-1 border border-green-500 text-green-500 px-2 py-1 rounded-md text-xs" onclick="addInfoAndContinueTwoTabSeven()">
+                       Add
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-end ml-auto">
+              <!-- <button
+                class="flex items-center gap-1 border border-green-500 text-green-500 px-2 py-2 rounded-md text-xs mr-2"
+              >
+                Edit Object Data
+              </button> -->
+              <button
+                id="firstDivLeftNext"
+                class="flex items-center gap-1 border border-green-500 text-green-500 px-2 py-3 rounded-md text-xs"
+                onclick="handleFirstDivNextClick()"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="" class="lg:w-[30%] sm:w-[100%] ">
+        <!-- duplicate the code here using node or something else -->
+        <div class="view-price-calculator target-container " id="whole-calculator"> 
+          <div class="pt-5 pl-5 pr-5">
+            <!-- <div class="p-2 bg-black rounded-lg text-xs">
+              <p class="text-white">Object Price: $2600.00</p>
+            </div> -->
+    
+            <div class="p-2 pb-0" id="rightDiv">
+              <!-- <div class="p-3 border border-green-500 rounded mt-4">
+                <div class="flex flex-col items-center">
+                  <img
+                    src="https://ruempeleasy.de/wp-content/uploads/2021/05/attic-hover.png"
+                    alt="Attic"
+                    class="h-50 w-auto"
+                  />
+                  <p class="text-center text-xs">attic</p> -->
+                <!-- </div>
+              </div> -->
+            </div>
+    
+            <div class="mt-4">
+              <div class="grid grid-cols-3 gap-1">
+
+                
+
+                <p class="text-xs font-bold col-start-1 col-span-1">Service</p>
+                <span class="text-xs font-bold col-start-2">Quantity</span>
+                <p class="text-xs font-bold col-start-3">Rate</p>
+               <p class="text-xs font-bold col-start-4">Price</p>
+
+                
+                <p class="text-xs text-gray-500 col-start-1 col-span-1">Surface Area</p>
+                <!-- I am displaying none on all of the bcoz they are linked to next button of the tabs -->
+                <span id="rangeDisplay_2" style="display: none;" class="text-xs text-gray-500 col-start-2">-</span>
+                <p class="text-xs text-gray-500 col-start-3" style="display: none;" id="priceRateDisplay"></p>
+                <p class="text-xs text-gray-500 col-start-4" style="display: none;" id="pricePriceDisplay"></p>
+
+                <span id="AreaQuantityy"  class="text-xs text-gray-500 col-start-2"></span>
+                <p class="text-xs text-gray-500 col-start-3"  id="AreaRate"></p>
+                <div class="flex">
+                <p class="text-xs text-gray-500 col-start-4">€</p>
+                <p class="text-xs text-gray-500 col-start-4"  id="AreaPrice">0</p>
+              </div>
+
+
+                
+                <!-- Condition and Rate -->
+                <p class="text-xs text-gray-500 col-start-1 col-span-1">Condition:</p>
+                <p class="text-xs text-gray-500 col-start-2 col-span-1" style="display: none;" id="conditionRateDisplay"></p>
+                <p class="text-xs text-gray-500 col-start-3" style="display: none;"  id="ConditionRateDisplay_2"></p>
+                <p class="text-xs text-gray-500 col-start-3"  style="display: none;"id="ConditionRateDisplay_3"></p>
+
+                <p class="text-xs text-gray-500 col-start-2 col-span-1" id="ConditionQuantity"></p>
+                <p class="text-xs text-gray-500 col-start-3"   id="ConditionRate"></p>
+                <div class="flex">
+                <p class="text-xs text-gray-500 col-start-4"  id="">€</p>
+                <p class="text-xs text-gray-500 col-start-4"  id="ConditionPrice">0</p>
+              </div>
+
+
+
+
+                <p class="text-xs text-gray-500 col-start-1 col-span-1">Floor:</p>
+                <p class="text-xs text-gray-500 col-start-2 col-span-1"  style="display: none;" id="floorLevelDisplay"></p>
+                <p class="text-xs text-gray-500 col-start-3 col-span-1" style="display: none;" id="floorLevelDisplay_2"></p>
+
+
+                <p class="text-xs text-gray-500 col-start-2 col-span-1"  id="floorQuantity"></p>
+                <p class="text-xs text-gray-500 col-start-3 col-span-1"  id="floorRate"></p>
+                <div class="flex">
+                <p class="text-xs text-gray-500 col-start-4 col-span-1"  id="">€</p>
+                <p class="text-xs text-gray-500 col-start-4 col-span-1"  id="floorPrice">0</p>
+              </div>
+
+
+
+
+                
+                <p class="text-xs font-bold col-start-1 col-span-1">Sub-Total</p>
+                <span id="rangeDisplay_1" style="display: none;" class="text-xs text-gray-500 col-start-2">50</span>
+                
+                <span  style="display: none;" class="text-xs text-gray-500 col-start-3"></span>
+
+                <div class="flex">
+                <span  class="text-xs text-gray-500 col-start-2">€</span>
+                <span id="subTotalChootaWala"  class="text-xs text-gray-500 col-start-2">50</span>
+              </div>
+                <span   class="text-xs text-gray-500 col-start-3"></span>
+
+
+
+                <!-- <div class="block">
+                  <p id="additional-info" class="text text-gray-800 font-bold  mb-1 mt-2" style="display: none; width: max-content;">Additional Services</p>
+                  <div class="additional-info-details pl-5" style="display: none;">
+                  <p class="text-xs text-gray-800 font-semibold mb-3 mr-23">Name</p>
+                  <p class="text-xs text-gray-800 font-semibold mb-3 mr-3">Quantity</p>
+                  <p class="text-xs text-gray-800 font-semibold mb-3">Price</p>
+                </div> 
+              </div> -->
+
+                </p>
+              </div>
+       
+            </div>
+            
+            
+    
+            <!-- <div class="rounded-lg bg-gray-300 p-1 mt-4">
+              <button class="bg-gray-300 text-bold rounded-lg px-4 py-2">
+                Reset Inputs
+              </button>
+            </div> -->
+          </div>
+
+
+          <div class="block">
+            <p id="additional-info" class="pl-5 text text-gray-800 font-bold  mb-1 mt-2" style="display: none; width: max-content;">Additional Services</p>
+            <div class="additional-info-details pl-5" style="display: none;">
+            <p class="text-xs text-gray-800 font-semibold mb-3 mr-23">Service</p>
+            <p class="text-xs text-gray-800 font-semibold mb-3 mr-10">Quantity</p>
+            <p class="text-xs text-gray-800 font-semibold mb-3 mr-3 ">Rate</p>
+            <p class="text-xs text-gray-800 font-semibold ml-3 mb-3">Price</p>
+          </div> 
+         
+        </div>
+
+      
+      </div>
+
+
+      <div class="flex mt-3">
+        <p class="text-xs font-bold pl-5 mr-5 ">Sub-Total of Additional Services</p>
+
+        <div class="flex">
+        <span  class="text-xs text-gray-500"  >€</span>
+      <span  class="text-xs text-gray-500" id="additional-services-price" >0</span>
+    </div>
+
+    </div>
+<!-- 
+      <p class="text-xs font-bold col-start-1 col-span-1">Sub-Total</p>
+      <span id="rangeDisplay_1" style="display: none;" class="text-xs text-gray-500 col-start-2">50</span>
+      
+      <span  style="display: none;" class="text-xs text-gray-500 col-start-3"></span>
+
+      <div class="flex">
+      <span  class="text-xs text-gray-500 col-start-2">€</span>
+      <span id=""  class="text-xs text-gray-500 col-start-2">50</span> -->
+
+ 
+        <!-- <p id="" class="text pr-5 mb-0 mt-2 text-right text-xs cursor-pointer underline text-blue-600 di" >Edit</p> -->
+        <div class="pl-5 pr-5">  
+        <div class="flex justify-center mt-3 lg:w-[24.5rem] w-full p-2  bg-black rounded-lg text-xs">
+        <div class="text-xs text-white font-bold col-start-1 col-span-1 ">Total Price</div>
+        <div class="flex col-start-2 col-span-2">
+        <div class="text-xs font-bold text-white ml-10">€</div>
+        <div id="price-total-end" class="text-xs font-bold col-start-1 col-span-1  text-white">0</div>
+      </div>
+      </div>
+    </div>
+
+    </div>
+      
+       
+    </div>
+    <div id="thirdFlexDiv" class="sm:block gap-1 sm:p-0 lg:p-20 lg:flex ">
+      <div class="lg:w-[70%] sm:w-[100%] px-10">
+        <div class="h-100 grid-for-seperation">
+          <div class=>
+          <p class="text-center mt-2">Please add pictures of your object</p>
+          <p class="mt-2">
+            Please add at least one picture of your object so that we can
+            estimate the scope of the work
+          </p>
+          <button class="gap-1 border border-green-500 text-green-500 px-2 py-2  rounded-md text-xs mr-2 mt-4">Choose picture </button>
+          (No images selected)
+        </div>
+          <div class=" lg:flex sm:block justify-end ml-auto">
+            
+            <div>
+              <button class=" gap-1 border border-blue-800 text-blue-800 px-2 py-2 rounded-md text-xs mr-2 mb-2">Add Picture</button>
+              <button class="  gap-1 border border-blue-800 text-blue-800 px-2 py-2 rounded-md text-xs mr-2">Back to object editing</button>
+              <button id="furtherButton" class="gap-1 border border-blue-800 text-blue-800 px-2 py-2 rounded-md text-xs mr-2" onclick="toggleDivs()">Further</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:w-[30%] sm:w-[100%] " id="secondRightDiv">
+    
+        
+      </div>
+    </div>
+    <div id="fourthFlexDiv" class="lg:flex sm:block  gap-1 px-10 ">
+      <div class="lg:w-[75%] sm:w-[100%] ">
+        <h2 class="text-center mt-2">Property address and eviction date</h2>
+        <p class="mt-2">Where is your property located?</p>
+        <div class=" sm:block lg:flex">
+          <div class="m-4 flex-grow">
+            <label class="text-xs" >Street and house number:</label>
+            <input id="streets" type="text" class="border border-gray-500 rounded px-2 py-1 text-xs focus:outline-none focus:border-blue-800 w-[100%]" />
+          </div>
+          <div class="m-4 flex-grow">
+            <label class="text-xs" for="postal-code">Postal Code:</label>
+            <input id="postal-code" type="text" class="border border-gray-500 rounded px-2 py-1 text-xs focus:outline-none focus:border-blue-800 w-[100%]" />
+          </div>
+        </div>
+        <div class="sm:block lg:flex">
+          <div class="m-4 flex-grow">
+            <label class="text-xs" for="location">Location:</label>
+            <input id="location" type="text" class=" border border-gray-500 rounded px-2 py-1 text-xs focus:outline-none focus:border-blue-800 w-[100%] " />
+          </div>
+          <div class="m-4">
+            <label class="text-xs" for="date">Date:</label>
+            <input id="date" type="date" class="border border-gray-500 rounded px-2 py-1 text-xs focus:outline-none focus:border-blue-800 w-[100%]" />
+          </div>
+          <div class="m-4 ">
+            <label class="text-xs " for="time">Time:</label>
+            <input id="time" type="time" class=" border border-gray-500 rounded px-2 py-1 text-xs focus:outline-none focus:border-blue-800 w-[100%] " />
+          </div>
+        </div>
+        <div class="mt-4 flex justify-end">
+          <!-- <button class="border border-gray-300 px-2 py-1 rounded-md text-xs">Edit object data</button> -->
+          <button class="border border-blue-800 text-blue-800 px-2 py-1 rounded-md text-xs ml-2" onclick="saveFormData()">Finish object</button>
+        </div>
+      </div>
+      <div class="lg:w-[25%] sm:w-[100%] px-10">
+        <div class="p-5">
+          <div class="p-2 bg-black rounded-lg text-xs">
+            <p class="text-white">Object Price: $2600.00</p>
+          </div>
+
+          <div class="p-3 pb-0">
+            <div class="p-5 border border-blue-800 rounded mt-4">
+              <div class="flex flex-col items-center">
+                <img
+                  src="https://ruempeleasy.de/wp-content/uploads/2021/05/attic-hover.png"
+                  alt="Attic"
+                  class="h-50 w-auto"
+                />
+                <p class="text-center text-xs">attic</p>
+                <p class="text-center text-xs">130sqm</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <p class="text-xs text-gray-500">Basic clearing price: €490.00</p>
+            <p class="text-xs text-gray-500">Object 1 of 1</p>
+          </div>
+          <div class="rounded-lg bg-gray-300 p-1 mt-4">
+            <button class="bg-gray-300 text-bold rounded-lg px-4 py-2">
+              Reset Inputs
+            </button>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <!-- <div id="overview-property" class="p-20">
+          <h2 class="font-bold">Overview of your property requests</h2>
+      <div>
+        <div>
+          <div class="flex mt-4">
+            <div class="w-1/3">
+              <p>Name</p>
+            </div>
+            <div class="w-1/3">
+              <p>2000$</p>
+            </div>
+            <div class="w-1/3 flex">
+              <button class="border border-gray-300 px-2 py-1 rounded-md text-xs">Edit</button>
+              <button class="border border-gray-300 px-2 py-1 rounded-md text-xs ml-2">Delete</button>
+            </div>
+          </div>
+          <div class="mt-4">
+            <button class="border border-blue-500 text-blue-500 px-2 py-1 rounded-md text-xs">Add another object</button>
+          </div>
+        </div>
+
+        <div class="flex justify-end p-20">
+          <button class="border border-green-500 text-green-500 px-2 py-1 rounded-md text-xs">Order Now</button>
+          <button class="border border-blue-500 text-blue-500 px-2 py-1 rounded-md text-xs ml-2">Request an Offer Now</button>
+        </div>
+        
+      </div>
+    </div> -->
+    <div class="lg:p-20-left-right px-10 ">
+        <h2 class="text-left mt-2">Request for quotation</h2>
+        <div class="flex">
+         
+        </div>
+        <div class="mt-4 lg:px-40 mb-4">
+          <div class="grid gap-1 lg:p-20-left-right lg:grid-cols-2  sm:grid-cols-1">
+            <div>
+              <label for="company">Company:</label>
+              <br>
+              <input type="text" id="company" class="border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-blue-800 w-[100%] " >
+            </div>
+            <div>
+              <label for="surname">Surname:</label>
+              <br>
+              <input type="text" id="surname" class="border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-blue-800 w-[100%] ">
+            </div>
+            <div>
+              <label for="firstName">First Name:</label>
+              <br>
+              <input type="text" id="firstName" class="border border-gray-300 rounded px-2 py-1 focus:outline-none focus:border-blue-500 w-full pl-2 pr-2">
+            </div>
+          </div>
+          <div class="grid lg:grid-cols-3  md: grid-cols-1 gap-1">
+            <div>
+              <label for="street">Street:</label>
+              <br>
+              <input type="text" id="street" class="border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-blue-800 w-[100%] ">
+            </div>
+            <div>
+              <label for="zip">ZIP:</label>
+              <br>
+              <input type="text" id="zip" class="border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-blue-800 w-[100%] ">
+            </div>
+            <div>
+              <label for="place">Place:</label>
+              <br>
+              <input type="text" id="place" class="border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-blue-800 w-[100%] ">
+            </div>
+          </div>
+          <div class="grid lg:grid-cols-2  md: grid-cols-1 gap-1 mt-2">
+            <div>
+              <label for="email">Email:</label>
+              <br>
+              <input type="email" id="email" class="border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-blue-800 w-[100%] ">
+            </div>
+            <div>
+              <label for="phone">Phone Number:</label>
+              <br>
+              <input type="tel" id="phone" class="border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-blue-800 w-[100%] ">
+            </div>
+          </div>
+          <div class="flex items-center text-gray-400">
+            <input type="checkbox" id="privacy" class="mr-2">
+            <label for="privacy">By submitting you agree to our privacy policy.</label>
+          </div>
+          <div class=" justify-end flex">
+            <button id="requestQuotaButton" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4" onclick="saveRequestforQuotation()">Request a Quota</button>
+          </div>
+          
+          
+        </div>        
+      </div>
+        
+
+    
+  </body>
+</html>
